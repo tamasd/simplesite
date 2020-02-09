@@ -1,0 +1,5 @@
+*.exe
+.env
+vendor
+.idea
+*.iml

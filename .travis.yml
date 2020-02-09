@@ -1,0 +1,38 @@
+language: go
+addons:
+  postgresql: "12"
+  apt:
+    packages:
+      - postgresql-12
+      - postgresql-client-12
+services:
+  - postgresql
+  - redis-server
+
+env:
+  global:
+    - TEST_DB="dbname=travis user=travis password=travis sslmode=disable port=5433"
+    - TEST_REDIS="127.0.0.1:6379"
+    - VERBOSE=1
+    - PGPORT="5433"
+
+go:
+  - "1.13.x"
+  - tip
+
+matrix:
+  allow_failures:
+    - go: tip
+
+before_script:
+  - psql -p 5433 -c 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";'
+  - psql -p 5433 -c "ALTER USER travis WITH PASSWORD 'travis';"
+
+install:
+  - go get
+
+script:
+  - go test -race -p "$(nproc)" -coverprofile=coverage.txt -coverpkg=./... -covermode=atomic ./...
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

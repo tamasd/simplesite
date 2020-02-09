@@ -1,0 +1,135 @@
+/*
+ * A simple website in Go.
+ * Copyright (c) 2020. Tamás Demeter-Haludka
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+body {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 0 10px;
+    font: 18px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    color: #839496;
+    background-color: #fdf6e3;
+}
+
+a {
+    color: #268bd2;
+}
+
+a:hover {
+    color: #6c71c4;
+}
+
+h1, h2, h3 {
+    line-height: 1.2
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #93a1a1;
+    display: block;
+    transition: .3s background-color;
+}
+
+nav a:hover {
+    color: #93a1a1;
+    background-color: #073642;
+}
+
+input, textarea, button {
+    color: #839496;
+    background-color: #fdf6e3;
+    border: 1px solid #839496;
+}
+
+div.messages {
+    background-color: #eee8d5;
+}
+
+div.messages p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.messages p.error {
+    color: #dc322f;
+}
+
+div.messages p.warning {
+    color: #cb4b16;
+}
+
+div.align-right {
+    text-align: right;
+}
+
+@media screen and (min-width: 600px) {
+    nav li {
+        width: 120px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    nav li {
+        display: inline-block;
+        margin-right: -4px;
+    }
+}
+
+table {
+    width: 100%;
+}
+
+table thead th {
+    text-align: left;
+}
+
+table tbody tr td.maxwidth {
+    width: auto;
+}
+
+table tbody tr td.diff-radio {
+    width: 24px;
+}
+
+button#diff-button {
+    margin-right: 10px;
+}
+
+div.diff ins {
+    color: #fdf6e3;
+    background: #859900;
+}
+
+div.diff del {
+    color: #fdf6e3;
+    background: #dc322f;
+}
